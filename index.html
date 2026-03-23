@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>메디부스터 주식회사 | 채용</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  // ★ EmailJS 설정 ★
+  // 1. https://www.emailjs.com 가입 (무료)
+  // 2. Email Service 연결 (Gmail 등)
+  // 3. Template 만들기 → 아래 변수명 그대로 사용
+  // 4. PUBLIC_KEY, SERVICE_ID, TEMPLATE_ID 교체
+  const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';   // ← 교체
+  const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';   // ← 교체
+  const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';  // ← 교체
+  window.addEventListener('load', () => {
+    if (EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
+      emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+    }
+  });
+</script>
+<style>
+:root {
+  --bg:       #ffffff;
+  --bg2:      #f7f7f5;
+  --bg3:      #f0efe9;
+  --surface:  #ffffff;
+  --border:   #e5e5e0;
+  --text:     #111111;
+  --text2:    #444444;
+  --text3:    #888888;
+  --green:    #1a6b50;
+  --green2:   #2a9070;
+  --green-bg: #f0f7f4;
+  --red:      #c0392b;
+  --font: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ───── NAV ───── */
+nav {
+  position: fixed; top:0; left:0; right:0; z-index:100;
+  height: 60px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 40px;
+  background: rgba(255,255,255,0.96);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 8px;
+  text-decoration: none;
+}
+.nav-logo-mark {
+  width: 30px; height: 30px;
+  background: var(--text);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 800; color: white;
+  letter-spacing: -1px;
+}
+.nav-logo-text {
+  font-size: 15px; font-weight: 700;
+  color: var(--text); letter-spacing: -0.3px;
+}
+.nav-links {
+  display: flex; align-items: center; gap: 28px;
+}
+.nav-links a {
+  font-size: 13px; font-weight: 500;
+  color: var(--text2); text-decoration: none;
+  letter-spacing: -0.2px;
+  transition: color 0.15s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-apply-btn {
+  background: var(--text) !important;
+  color: white !important;
+  padding: 8px 18px !important;
+  border-radius: 6px !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  transition: background 0.15s !important;
+}
+.nav-apply-btn:hover { background: #333 !important; }
+
+/* ───── HERO ───── */
+.hero {
+  padding: 140px 80px 100px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+.hero-label {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 600;
+  color: var(--green);
+  background: var(--green-bg);
+  padding: 5px 12px; border-radius: 100px;
+  margin-bottom: 28px;
+  letter-spacing: 0;
+}
+.hero-label::before {
+  content:''; width:6px; height:6px;
+  background: var(--green); border-radius: 50%;
+  animation: blink 1.8s infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+.hero h1 {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -2px;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+.hero h1 .accent { color: var(--green); }
+.hero-desc {
+  font-size: 17px; font-weight: 400;
+  color: var(--text3); line-height: 1.8;
+  margin-bottom: 44px;
+  max-width: 520px;
+}
+.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--text); color: white;
+  padding: 14px 28px; border-radius: 8px;
+  font-size: 14px; font-weight: 600;
+  text-decoration: none; display: inline-block;
+  font-family: var(--font);
+  cursor: pointer; border: none;
+  transition: background 0.15s;
+  letter-spacing: -0.2px;
+}
+.btn-primary:hover { background: #333; }
+.btn-secondary {
+  background: transparent;
+  color: var(--text2);
+  border: 1.5px solid var(--border);
+  padding: 14px 28px; border-radius: 8px;
+  font-size: 14px; font-weight: 500;
+  text-decoration: none; display: inline-block;
+  font-family: var(--font);
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+  letter-spacing: -0.2px;
+}
+.btn-secondary:hover { border-color: var(--text2); color: var(--text); }
+
+.hero-stats {
+  display: flex; gap: 0;
+  margin-top: 72px;
+  border-top: 1px solid var(--border);
+  padding-top: 40px;
+}
+.stat-item {
+  flex: 1; padding-right: 40px;
+  border-right: 1px solid var(--border);
+  margin-right: 40px;
+}
+.stat-item:last-child { border-right: none; margin-right: 0; }
+.stat-num {
+  font-size: 48px; font-weight: 800;
+  color: var(--text); letter-spacing: -3px;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.stat-num span { font-size: 28px; letter-spacing: -1px; }
+.stat-label { font-size: 13px; color: var(--text3); font-weight: 400; }
+
+/* ───── SECTION ───── */
+section { padding: 96px 80px; }
+.section-tag {
+  font-size: 12px; font-weight: 600;
+  color: var(--green);
+  letter-spacing: 0;
+  margin-bottom: 12px;
+}
+.section-title {
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 800; letter-spacing: -1.5px;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+.section-desc {
+  font-size: 15px; color: var(--text3);
+  line-height: 1.75; font-weight: 400;
+  max-width: 480px;
+}
+
+/* ───── ABOUT ───── */
+.about { background: var(--bg2); }
+.about-inner {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: start; margin-top: 56px;
+}
+.about-left p {
+  font-size: 15px; line-height: 1.85;
+  color: var(--text2); margin-bottom: 20px; font-weight: 400;
+}
+.about-right { display: flex; flex-direction: column; gap: 0; }
+.value-item {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+  display: flex; gap: 20px; align-items: flex-start;
+}
+.value-item:first-child { border-top: 1px solid var(--border); }
+.value-num {
+  font-size: 12px; font-weight: 700; color: var(--green);
+  min-width: 24px; margin-top: 2px;
+}
+.value-title {
+  font-size: 15px; font-weight: 700;
+  color: var(--text); margin-bottom: 4px;
+  letter-spacing: -0.3px;
+}
+.value-desc { font-size: 13px; color: var(--text3); line-height: 1.7; }
+
+/* ───── JOBS ───── */
+.jobs { background: var(--bg); }
+.jobs-top {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  margin-bottom: 32px; gap: 24px; flex-wrap: wrap;
+}
+.filters { display: flex; gap: 8px; flex-wrap: wrap; }
+.filter-btn {
+  padding: 6px 14px; border-radius: 100px;
+  border: 1.5px solid var(--border);
+  background: transparent; cursor: pointer;
+  font-size: 12px; font-weight: 500; color: var(--text3);
+  font-family: var(--font);
+  transition: all 0.15s;
+}
+.filter-btn.active, .filter-btn:hover {
+  border-color: var(--text); color: var(--text);
+  background: var(--text); color: white;
+}
+.job-list { display: flex; flex-direction: column; }
+.job-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 24px 0; gap: 24px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.job-row:first-child { border-top: 1px solid var(--border); }
+.job-row:hover { background: var(--bg2); margin: 0 -24px; padding: 24px; }
+.job-left { flex: 1; }
+.job-dept {
+  font-size: 11px; font-weight: 700;
+  color: var(--green); letter-spacing: 0.5px;
+  text-transform: uppercase; margin-bottom: 6px;
+}
+.job-title {
+  font-size: 17px; font-weight: 700;
+  color: var(--text); margin-bottom: 10px;
+  letter-spacing: -0.5px;
+}
+.job-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.tag {
+  padding: 3px 10px; border-radius: 100px;
+  background: var(--bg2); border: 1px solid var(--border);
+  font-size: 11px; font-weight: 500; color: var(--text3);
+}
+.tag.new { background: var(--green-bg); border-color: rgba(26,107,80,0.2); color: var(--green); }
+.job-arrow {
+  font-size: 18px; color: var(--text3);
+  flex-shrink: 0; transition: transform 0.15s, color 0.15s;
+}
+.job-row:hover .job-arrow { transform: translateX(4px); color: var(--text); }
+
+/* ───── PROCESS ───── */
+.process { background: var(--bg3); }
+.process-steps {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 0; margin-top: 56px;
+  border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden;
+  background: white;
+}
+.step {
+  padding: 36px 28px;
+  border-right: 1px solid var(--border);
+  position: relative;
+}
+.step:last-child { border-right: none; }
+.step-num {
+  font-size: 40px; font-weight: 800;
+  color: var(--bg3); letter-spacing: -2px;
+  line-height: 1; margin-bottom: 16px;
+}
+.step h4 {
+  font-size: 15px; font-weight: 700;
+  color: var(--text); margin-bottom: 8px;
+  letter-spacing: -0.3px;
+}
+.step p { font-size: 13px; color: var(--text3); line-height: 1.65; }
+
+/* ───── CULTURE ───── */
+.culture { background: var(--bg2); }
+.culture-grid {
+  display: grid; grid-template-columns: repeat(2,1fr);
+  gap: 16px; margin-top: 56px;
+}
+.culture-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px 28px;
+  transition: box-shadow 0.2s;
+}
+.culture-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+.culture-icon { font-size: 26px; margin-bottom: 16px; }
+.culture-card h3 {
+  font-size: 15px; font-weight: 700;
+  color: var(--text); margin-bottom: 8px;
+  letter-spacing: -0.3px;
+}
+.culture-card p { font-size: 13px; color: var(--text3); line-height: 1.75; }
+
+/* ───── BENEFITS ───── */
+.benefits { background: var(--bg); }
+.benefits-grid {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 12px; margin-top: 56px;
+}
+.benefit-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px 20px;
+  transition: box-shadow 0.2s;
+}
+.benefit-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+.benefit-emoji { font-size: 24px; margin-bottom: 12px; }
+.benefit-card h4 {
+  font-size: 14px; font-weight: 700;
+  color: var(--text); margin-bottom: 4px;
+  letter-spacing: -0.2px;
+}
+.benefit-card p { font-size: 12px; color: var(--text3); line-height: 1.6; }
+
+/* ───── CTA ───── */
+.cta {
+  background: var(--text);
+  padding: 96px 80px; text-align: center;
+}
+.cta h2 {
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 800; color: white;
+  letter-spacing: -2px; line-height: 1.2;
+  margin-bottom: 14px;
+}
+.cta p { font-size: 16px; color: rgba(255,255,255,0.55); margin-bottom: 36px; }
+.cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.btn-white {
+  background: white; color: var(--text);
+  padding: 14px 28px; border-radius: 8px;
+  font-size: 14px; font-weight: 700;
+  text-decoration: none; display: inline-block;
+  font-family: var(--font); cursor: pointer; border: none;
+  transition: background 0.15s;
+  letter-spacing: -0.2px;
+}
+.btn-white:hover { background: #eee; }
+.btn-white-outline {
+  background: transparent; color: rgba(255,255,255,0.7);
+  border: 1.5px solid rgba(255,255,255,0.25);
+  padding: 14px 28px; border-radius: 8px;
+  font-size: 14px; font-weight: 500;
+  font-family: var(--font); cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+  letter-spacing: -0.2px;
+}
+.btn-white-outline:hover { border-color: rgba(255,255,255,0.6); color: white; }
+
+/* ───── FOOTER ───── */
+footer {
+  background: var(--bg2);
+  padding: 60px 80px 40px;
+  border-top: 1px solid var(--border);
+}
+.footer-inner {
+  display: flex; justify-content: space-between;
+  gap: 40px; flex-wrap: wrap;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 28px;
+}
+.footer-brand p {
+  font-size: 13px; color: var(--text3);
+  margin-top: 10px; line-height: 1.7; max-width: 240px;
+}
+.footer-brand .brand-name {
+  font-size: 16px; font-weight: 800;
+  color: var(--text); letter-spacing: -0.5px;
+}
+.footer-col h5 {
+  font-size: 11px; font-weight: 700;
+  color: var(--text); letter-spacing: 0.5px;
+  text-transform: uppercase; margin-bottom: 14px;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.footer-col a {
+  font-size: 13px; color: var(--text3);
+  text-decoration: none; transition: color 0.15s;
+}
+.footer-col a:hover { color: var(--text); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 10px;
+}
+.footer-bottom p { font-size: 12px; color: var(--text3); }
+
+/* ───── MODAL ───── */
+.overlay {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(0,0,0,0.5);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.25s;
+  padding: 20px;
+}
+.overlay.open { opacity: 1; pointer-events: all; }
+.modal-box {
+  background: white;
+  border-radius: 16px;
+  width: 100%; max-width: 520px;
+  max-height: 90vh; overflow-y: auto;
+  padding: 40px;
+  transform: translateY(12px) scale(0.98);
+  transition: transform 0.25s;
+  position: relative;
+}
+.overlay.open .modal-box { transform: translateY(0) scale(1); }
+.modal-close {
+  position: absolute; top: 16px; right: 20px;
+  background: none; border: none;
+  font-size: 22px; cursor: pointer; color: var(--text3);
+  line-height: 1;
+}
+.modal-close:hover { color: var(--text); }
+.modal-tag {
+  font-size: 11px; font-weight: 700; color: var(--green);
+  text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;
+}
+.modal-title {
+  font-size: 22px; font-weight: 800;
+  color: var(--text); margin-bottom: 6px;
+  letter-spacing: -0.8px;
+}
+.modal-sub {
+  font-size: 13px; color: var(--text3);
+  margin-bottom: 28px; line-height: 1.65;
+}
+.modal-sub strong { color: var(--green); }
+.form-group { margin-bottom: 16px; }
+.form-label {
+  display: block; font-size: 12px; font-weight: 600;
+  color: var(--text2); margin-bottom: 6px; letter-spacing: -0.2px;
+}
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 14px; font-family: var(--font);
+  color: var(--text); background: white;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: var(--text);
+}
+.form-textarea { resize: vertical; min-height: 90px; }
+.file-area {
+  border: 1.5px dashed var(--border);
+  border-radius: 8px;
+  padding: 24px; text-align: center; cursor: pointer;
+  position: relative; transition: border-color 0.15s;
+  background: var(--bg2);
+}
+.file-area:hover { border-color: var(--text2); }
+.file-area input[type="file"] {
+  position: absolute; inset: 0; opacity: 0; cursor: pointer;
+  border: none; padding: 0; border-radius: 0;
+}
+.file-area-icon { font-size: 24px; margin-bottom: 6px; }
+.file-area p { font-size: 13px; color: var(--text3); }
+.file-area small { font-size: 11px; color: var(--text3); }
+.file-selected { font-size: 12px; color: var(--green); margin-top: 6px; font-weight: 500; }
+.form-note {
+  background: var(--bg2);
+  border-radius: 8px; padding: 12px 14px;
+  font-size: 12px; color: var(--text3);
+  line-height: 1.6; margin-bottom: 20px;
+  border-left: 3px solid var(--green);
+}
+.btn-submit {
+  width: 100%;
+  background: var(--text); color: white;
+  padding: 14px; border-radius: 8px;
+  font-size: 14px; font-weight: 700;
+  font-family: var(--font);
+  cursor: pointer; border: none;
+  transition: background 0.15s;
+  letter-spacing: -0.2px;
+}
+.btn-submit:hover { background: #333; }
+.btn-submit:disabled { background: #aaa; cursor: not-allowed; }
+.success-box {
+  text-align: center; padding: 32px 0;
+}
+.success-box .s-icon { font-size: 44px; margin-bottom: 14px; }
+.success-box h3 {
+  font-size: 20px; font-weight: 800;
+  color: var(--text); margin-bottom: 10px;
+  letter-spacing: -0.5px;
+}
+.success-box p { font-size: 14px; color: var(--text3); line-height: 1.7; }
+
+/* ───── EMAILJS 안내 배너 ───── */
+.setup-banner {
+  background: #fff8e6;
+  border: 1px solid #f0d080;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 13px; color: #7a5c00;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.setup-banner strong { font-weight: 700; }
+.setup-banner a { color: #7a5c00; }
+
+/* ───── RESPONSIVE ───── */
+@media (max-width: 900px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  section, .hero, .cta { padding: 72px 24px; }
+  .about-inner { grid-template-columns: 1fr; gap: 40px; }
+  .process-steps { grid-template-columns: 1fr 1fr; }
+  .culture-grid { grid-template-columns: 1fr; }
+  .benefits-grid { grid-template-columns: 1fr 1fr; }
+  .hero-stats { flex-direction: column; gap: 24px; }
+  .stat-item { border-right: none; margin-right: 0; padding-right: 0; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+  .stat-item:last-child { border-bottom: none; }
+  footer { padding: 48px 24px 32px; }
+  .modal-box { padding: 28px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ───── NAV ───── -->
+<nav>
+  <a href="#top" class="nav-logo">
+    <div class="nav-logo-mark">M</div>
+    <span class="nav-logo-text">메디부스터</span>
+  </a>
+  <div class="nav-links">
+    <a href="#about">회사소개</a>
+    <a href="#jobs">채용공고</a>
+    <a href="#process">채용절차</a>
+    <a href="#culture">조직문화</a>
+    <a href="#benefits">복리후생</a>
+    <a href="#" onclick="openContact(event)">문의하기</a>
+    <a href="#" class="nav-apply-btn" onclick="openApply(event, null)">지원하기 →</a>
+  </div>
+</nav>
+
+<!-- ───── HERO ───── -->
+<section class="hero" id="top" style="padding-top:140px;padding-bottom:100px;border-bottom:1px solid var(--border);">
+  <div class="hero-label">채용 진행 중</div>
+  <h1>병원의 성장을<br><span class="accent">설계하는</span> 사람들</h1>
+  <p class="hero-desc">
+    메디부스터는 병원 마케팅 전문 에이전시입니다.<br>
+    의료와 마케팅이 교차하는 지점에서,<br>
+    환자가 병원을 신뢰하는 여정을 함께 디자인합니다.
+  </p>
+  <div class="hero-btns">
+    <button class="btn-primary" onclick="openApply(event, null)">지원하기 →</button>
+    <a href="#about" class="btn-secondary">회사 소개</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">25<span>개</span></div>
+      <div class="stat-label">파트너 병원</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">12<span>년</span></div>
+      <div class="stat-label">업력</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">25<span>명</span></div>
+      <div class="stat-label">팀 규모</div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── ABOUT ───── -->
+<section class="about" id="about">
+  <div class="section-tag">About</div>
+  <div class="section-title">의료 마케팅의<br>새로운 기준</div>
+  <div class="about-inner">
+    <div class="about-left">
+      <p>2013년 설립된 메디부스터는 12년간 병원 마케팅 분야에서 전문성을 쌓아온 에이전시입니다. 단순한 광고 집행이 아닌, 병원의 브랜드 정체성을 설계하고 환자 경험 전반을 개선하는 통합 마케팅을 제공합니다.</p>
+      <p>의료 소비자의 행동을 데이터로 이해하고, 신뢰를 기반으로 한 의료 콘텐츠를 제작합니다. 현재 전국 25개 파트너 병원과 장기적인 파트너십을 맺고 함께 성장하고 있습니다.</p>
+      <p>의료는 신뢰의 산업입니다. 우리는 그 신뢰를 마케팅으로 연결하는 일을 합니다.</p>
+    </div>
+    <div class="about-right">
+      <div class="value-item">
+        <div class="value-num">01</div>
+        <div>
+          <div class="value-title">오너십 — Ownership</div>
+          <div class="value-desc">맡은 일을 내 사업처럼 책임집니다. 문제를 직접 정의하고 해결합니다.</div>
+        </div>
+      </div>
+      <div class="value-item">
+        <div class="value-num">02</div>
+        <div>
+          <div class="value-title">명확함 — Clarity</div>
+          <div class="value-desc">목표와 기대치를 항상 명확하게 전달하고 요청합니다.</div>
+        </div>
+      </div>
+      <div class="value-item">
+        <div class="value-num">03</div>
+        <div>
+          <div class="value-title">성장 — Growth</div>
+          <div class="value-desc">실패를 두려워하지 않고 빠르게 배웁니다. 학습은 우리의 핵심 역량입니다.</div>
+        </div>
+      </div>
+      <div class="value-item">
+        <div class="value-num">04</div>
+        <div>
+          <div class="value-title">임팩트 — Impact</div>
+          <div class="value-desc">바쁜 것과 성과 있는 것은 다릅니다. 진짜 임팩트를 먼저 질문합니다.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── JOBS ───── -->
+<section class="jobs" id="jobs">
+  <div class="jobs-top">
+    <div>
+      <div class="section-tag">채용 공고</div>
+      <div class="section-title">지금 함께할<br>분을 찾습니다</div>
+    </div>
+    <div class="filters">
+      <button class="filter-btn active" onclick="filter(this,'all')">전체</button>
+      <button class="filter-btn" onclick="filter(this,'마케팅')">마케팅</button>
+      <button class="filter-btn" onclick="filter(this,'콘텐츠')">콘텐츠</button>
+      <button class="filter-btn" onclick="filter(this,'데이터')">데이터</button>
+      <button class="filter-btn" onclick="filter(this,'영업')">영업/CS</button>
+    </div>
+  </div>
+  <div class="job-list">
+    <div class="job-row" data-dept="마케팅" onclick="openApply(event,'퍼포먼스 마케터 (병원 광고 전문)')">
+      <div class="job-left">
+        <div class="job-dept">마케팅</div>
+        <div class="job-title">퍼포먼스 마케터 (병원 광고 전문)</div>
+        <div class="job-tags"><span class="tag new">신규채용</span><span class="tag">경력 3년↑</span><span class="tag">서울 강남</span><span class="tag">정규직</span></div>
+      </div>
+      <div class="job-arrow">→</div>
+    </div>
+    <div class="job-row" data-dept="콘텐츠" onclick="openApply(event,'의료 콘텐츠 기획자 / 카피라이터')">
+      <div class="job-left">
+        <div class="job-dept">콘텐츠</div>
+        <div class="job-title">의료 콘텐츠 기획자 / 카피라이터</div>
+        <div class="job-tags"><span class="tag new">신규채용</span><span class="tag">경력 2년↑</span><span class="tag">서울 강남</span><span class="tag">정규직</span></div>
+      </div>
+      <div class="job-arrow">→</div>
+    </div>
+    <div class="job-row" data-dept="데이터" onclick="openApply(event,'마케팅 데이터 분석가 (SQL/GA4)')">
+      <div class="job-left">
+        <div class="job-dept">데이터</div>
+        <div class="job-title">마케팅 데이터 분석가 (SQL / GA4)</div>
+        <div class="job-tags"><span class="tag">경력 2년↑</span><span class="tag">서울 강남</span><span class="tag">정규직</span></div>
+      </div>
+      <div class="job-arrow">→</div>
+    </div>
+    <div class="job-row" data-dept="마케팅" onclick="openApply(event,'SNS 마케팅 매니저')">
+      <div class="job-left">
+        <div class="job-dept">마케팅</div>
+        <div class="job-title">SNS 마케팅 매니저 (인스타그램 / 유튜브)</div>
+        <div class="job-tags"><span class="tag new">신규채용</span><span class="tag">신입/경력</span><span class="tag">서울 강남</span><span class="tag">정규직</span></div>
+      </div>
+      <div class="job-arrow">→</div>
+    </div>
+    <div class="job-row" data-dept="영업" onclick="openApply(event,'병원 영업 컨설턴트')">
+      <div class="job-left">
+        <div class="job-dept">영업/CS</div>
+        <div class="job-title">병원 영업 컨설턴트 (B2B 신규 계약)</div>
+        <div class="job-tags"><span class="tag">경력 3년↑</span><span class="tag">서울 강남</span><span class="tag">정규직</span></div>
+      </div>
+      <div class="job-arrow">→</div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── PROCESS ───── -->
+<section class="process" id="process">
+  <div class="section-tag">채용 절차</div>
+  <div class="section-title">이렇게 진행됩니다</div>
+  <div class="section-desc">평균 2주 이내 최종 결과를 안내드립니다.</div>
+  <div class="process-steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h4>서류 지원</h4>
+      <p>이력서 및 포트폴리오 제출<br>지원하기 버튼 클릭</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h4>서류 검토</h4>
+      <p>담당자 검토 후<br>5영업일 내 연락</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h4>면접</h4>
+      <p>직무 역량 및 컬처핏<br>면접 진행</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <h4>최종 합격</h4>
+      <p>처우 협의 및<br>입사 일정 확정</p>
+    </div>
+  </div>
+</section>
+
+<!-- ───── CULTURE ───── -->
+<section class="culture" id="culture">
+  <div class="section-tag">조직 문화</div>
+  <div class="section-title">함께 만드는<br>일하는 방식</div>
+  <div class="culture-grid">
+    <div class="culture-card">
+      <div class="culture-icon">🏥</div>
+      <h3>의료 도메인 전문성</h3>
+      <p>의료 규제와 의료 소비자 행동에 대한 깊은 이해를 바탕으로 전략을 수립합니다. 전문성이 곧 우리의 차별점입니다.</p>
+    </div>
+    <div class="culture-card">
+      <div class="culture-icon">📊</div>
+      <h3>데이터 기반 의사결정</h3>
+      <p>직관이 아닌 데이터로 판단합니다. 모든 캠페인은 명확한 KPI와 성과 측정 체계 위에 설계됩니다.</p>
+    </div>
+    <div class="culture-card">
+      <div class="culture-icon">🚀</div>
+      <h3>빠른 성장 환경</h3>
+      <p>소규모 애자일 팀에서 빠르게 성장합니다. 도전적인 과제를 직접 오너십을 갖고 해결합니다.</p>
+    </div>
+    <div class="culture-card">
+      <div class="culture-icon">🤝</div>
+      <h3>수평적 파트너십</h3>
+      <p>상하 관계보다 동료 관계를 중시합니다. 모든 구성원의 아이디어가 실제 전략에 반영됩니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ───── BENEFITS ───── -->
+<section class="benefits" id="benefits">
+  <div class="section-tag">복리 후생</div>
+  <div class="section-title">함께 일하는<br>환경을 만듭니다</div>
+  <div class="benefits-grid">
+    <div class="benefit-card"><div class="benefit-emoji">⏰</div><h4>유연 근무</h4><p>코어타임 내 자율 출퇴근, 재택근무 일부 가능</p></div>
+    <div class="benefit-card"><div class="benefit-emoji">📚</div><h4>교육비 지원</h4><p>도서·강의·세미나 연 100만원 지원</p></div>
+    <div class="benefit-card"><div class="benefit-emoji">🏖️</div><h4>리프레시 휴가</h4><p>생일·창립기념일 유급 휴가 제공</p></div>
+    <div class="benefit-card"><div class="benefit-emoji">🍽️</div><h4>식대 지원</h4><p>점심 식대 월 15만원 지원</p></div>
+    <div class="benefit-card"><div class="benefit-emoji">💻</div><h4>장비 지원</h4><p>업무용 맥북 및 필요 장비 전액 지원</p></div>
+    <div class="benefit-card"><div class="benefit-emoji">🏥</div><h4>건강 관리</h4><p>연 1회 건강검진, 의료비 일부 지원</p></div>
+    <div class="benefit-card"><div class="benefit-emoji">🎯</div><h4>성과 인센티브</h4><p>팀·개인 성과 기반 분기별 인센티브</p></div>
+    <div class="benefit-card"><div class="benefit-emoji">🌐</div><h4>콘퍼런스 지원</h4><p>의료·마케팅 주요 콘퍼런스 참가 지원</p></div>
+  </div>
+</section>
+
+<!-- ───── CTA ───── -->
+<section class="cta">
+  <h2>메디부스터와 함께<br>의료 마케팅의 미래를</h2>
+  <p>탁월한 동료들과 함께 성장하고 싶다면, 지금 지원하세요.</p>
+  <div class="cta-btns">
+    <button class="btn-white" onclick="openApply(event,null)">지원하기 →</button>
+    <button class="btn-white-outline" onclick="openContact(event)">문의하기</button>
+  </div>
+</section>
+
+<!-- ───── FOOTER ───── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="brand-name">메디부스터 주식회사</div>
+      <p>서울특별시 강남구 테헤란로 000, 00층<br><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e78a86898680828a828993a7838884938895948095889297c98c95">[email&#160;protected]</a></p>
+    </div>
+    <div class="footer-col">
+      <h5>채용</h5>
+      <ul>
+        <li><a href="#jobs">채용공고</a></li>
+        <li><a href="#process">채용절차</a></li>
+        <li><a href="#culture">조직문화</a></li>
+        <li><a href="#benefits">복리후생</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>회사</h5>
+      <ul>
+        <li><a href="#about">회사소개</a></li>
+        <li><a href="#">서비스</a></li>
+        <li><a href="#">파트너 병원</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>문의</h5>
+      <ul>
+        <li><a href="/cdn-cgi/l/email-protection#b1dcd0dfd0d6d4dcd4dfc5f1d5ded2c5dec3c2d6c3dec4c19fdac3"><span class="__cf_email__" data-cfemail="fe939f909f999b939b908abe9a919d8a918c8d998c918b8ed0958c">[email&#160;protected]</span></a></li>
+        <li><a href="#" onclick="openContact(event)">문의하기</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 메디부스터 주식회사. All rights reserved.</p>
+    <p>개인정보처리방침 · 이용약관</p>
+  </div>
+</footer>
+
+<!-- ───── 지원하기 MODAL ───── -->
+<div class="overlay" id="applyOverlay">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeApply()">&#10005;</button>
+    <div id="applyFormWrap">
+      <div class="modal-tag">지원하기</div>
+      <div class="modal-title">메디부스터에 합류하세요</div>
+      <p class="modal-sub">작성하신 내용은 <strong>management at doctorsgroup.kr</strong> 로 전달됩니다.</p>
+
+      <form id="applyForm" enctype="multipart/form-data">
+        <input type="hidden" name="_subject" value="메디부스터 채용 지원서 접수">
+        <div class="form-group">
+          <label class="form-label">지원 포지션</label>
+          <select class="form-select" name="position" id="aPosition">
+            <option value="">포지션 선택</option>
+            <option>퍼포먼스 마케터 (병원 광고 전문)</option>
+            <option>의료 콘텐츠 기획자 / 카피라이터</option>
+            <option>마케팅 데이터 분석가 (SQL/GA4)</option>
+            <option>SNS 마케팅 매니저</option>
+            <option>병원 영업 컨설턴트</option>
+            <option>기타 / 인재풀 등록</option>
+          </select>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div class="form-group">
+            <label class="form-label">이름 *</label>
+            <input class="form-input" name="name" id="aName" placeholder="홍길동" type="text">
+          </div>
+          <div class="form-group">
+            <label class="form-label">연락처</label>
+            <input class="form-input" name="phone" id="aPhone" placeholder="010-0000-0000" type="tel">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">이메일 *</label>
+          <input class="form-input" name="email" id="aEmail" placeholder="your@email.com" type="email">
+        </div>
+        <div class="form-group">
+          <label class="form-label">이력서 파일 첨부 (PDF, Word, HWP)</label>
+          <div class="file-area">
+            <input type="file" name="resume" id="aFile" accept=".pdf,.doc,.docx,.hwp" onchange="onFile(this)">
+            <div class="file-area-icon">&#128206;</div>
+            <p>클릭하여 파일 첨부</p>
+            <small>PDF, Word, HWP 지원</small>
+          </div>
+          <div class="file-selected" id="aFileName"></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">자기소개 (선택)</label>
+          <textarea class="form-textarea" name="message" id="aCover" placeholder="경력, 강점, 지원 동기를 간략히 적어주세요."></textarea>
+        </div>
+        <div class="form-note">&#128204; 이력서 파일이 없으면 자기소개와 연락처를 기반으로 담당자가 연락드립니다.</div>
+        <button type="button" class="btn-submit" id="aSubmitBtn" onclick="submitApply()">이력서 제출하기</button>
+      </form>
+    </div>
+    <div id="applySuccess" class="success-box" style="display:none;">
+      <div class="s-icon">&#9989;</div>
+      <h3>지원이 완료되었습니다</h3>
+      <p>담당자 검토 후 5영업일 이내 연락드리겠습니다.<br>감사합니다.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ───── 문의하기 MODAL ───── -->
+<div class="overlay" id="contactOverlay">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeContact()">&#10005;</button>
+    <div id="contactFormWrap">
+      <div class="modal-tag">문의하기</div>
+      <div class="modal-title">무엇이든 물어보세요</div>
+      <p class="modal-sub">문의 내용은 <strong>management at doctorsgroup.kr</strong> 로 전달됩니다.</p>
+
+      <form id="contactForm">
+        <input type="hidden" name="_subject" value="메디부스터 문의 접수">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div class="form-group">
+            <label class="form-label">이름 *</label>
+            <input class="form-input" name="name" id="cName" placeholder="홍길동" type="text">
+          </div>
+          <div class="form-group">
+            <label class="form-label">이메일 *</label>
+            <input class="form-input" name="email" id="cEmail" placeholder="your@email.com" type="email">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">문의 유형</label>
+          <select class="form-select" name="type" id="cType">
+            <option>채용 문의</option>
+            <option>서비스 문의</option>
+            <option>파트너십 문의</option>
+            <option>기타</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">문의 내용 *</label>
+          <textarea class="form-textarea" name="message" id="cMsg" placeholder="문의 내용을 입력해 주세요." style="min-height:120px;"></textarea>
+        </div>
+        <button type="button" class="btn-submit" id="cSubmitBtn" onclick="submitContact()">문의 보내기</button>
+      </form>
+    </div>
+    <div id="contactSuccess" class="success-box" style="display:none;">
+      <div class="s-icon">&#9989;</div>
+      <h3>문의가 접수되었습니다</h3>
+      <p>담당자 확인 후 빠르게 답변드리겠습니다.<br>감사합니다.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function filter(btn, dept) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.job-row').forEach(r => {
+    r.style.display = (dept === 'all' || r.dataset.dept === dept) ? 'flex' : 'none';
+  });
+}
+function onFile(input) {
+  var f = input.files[0];
+  document.getElementById('aFileName').textContent = f ? '파일: ' + f.name : '';
+}
+function openApply(e, title) {
+  if (e) e.preventDefault();
+  document.getElementById('applyOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('applyFormWrap').style.display = 'block';
+  document.getElementById('applySuccess').style.display = 'none';
+  if (title) {
+    var sel = document.getElementById('aPosition');
+    for (var i = 0; i < sel.options.length; i++) {
+      if (sel.options[i].text === title) { sel.selectedIndex = i; break; }
+    }
+  }
+}
+function closeApply() {
+  document.getElementById('applyOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function openContact(e) {
+  if (e) e.preventDefault();
+  document.getElementById('contactOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('contactFormWrap').style.display = 'block';
+  document.getElementById('contactSuccess').style.display = 'none';
+}
+function closeContact() {
+  document.getElementById('contactOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('applyOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closeApply();
+  });
+  document.getElementById('contactOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closeContact();
+  });
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.05 });
+  document.querySelectorAll('.job-row, .culture-card, .benefit-card, .value-item, .step').forEach(function(el) {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(14px)';
+    el.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
+    io.observe(el);
+  });
+});
+function submitApply() {
+  var name  = document.getElementById('aName').value.trim();
+  var email = document.getElementById('aEmail').value.trim();
+  if (!name)  { alert('이름을 입력해 주세요.'); return; }
+  if (!email) { alert('이메일을 입력해 주세요.'); return; }
+  var btn = document.getElementById('aSubmitBtn');
+  btn.disabled = true; btn.textContent = '전송 중...';
+  var data = new FormData(document.getElementById('applyForm'));
+  fetch('https://usebasin.com/f/c76bb354c9e3', {
+    method: 'POST',
+    headers: { 'Accept': 'application/json' },
+    body: data
+  })
+  .then(function(res) {
+    if (res.ok) {
+      document.getElementById('applyFormWrap').style.display = 'none';
+      document.getElementById('applySuccess').style.display = 'block';
+    } else { throw new Error(); }
+  })
+  .catch(function() {
+    alert('전송 오류. 직접 이메일로 연락해 주세요.');
+    btn.disabled = false; btn.textContent = '이력서 제출하기';
+  });
+}
+function submitContact() {
+  var name  = document.getElementById('cName').value.trim();
+  var email = document.getElementById('cEmail').value.trim();
+  var msg   = document.getElementById('cMsg').value.trim();
+  if (!name)  { alert('이름을 입력해 주세요.'); return; }
+  if (!email) { alert('이메일을 입력해 주세요.'); return; }
+  if (!msg)   { alert('문의 내용을 입력해 주세요.'); return; }
+  var btn = document.getElementById('cSubmitBtn');
+  btn.disabled = true; btn.textContent = '전송 중...';
+  var data = new FormData(document.getElementById('contactForm'));
+  fetch('https://usebasin.com/f/c76bb354c9e3', {
+    method: 'POST',
+    headers: { 'Accept': 'application/json' },
+    body: data
+  })
+  .then(function(res) {
+    if (res.ok) {
+      document.getElementById('contactFormWrap').style.display = 'none';
+      document.getElementById('contactSuccess').style.display = 'block';
+    } else { throw new Error(); }
+  })
+  .catch(function() {
+    alert('전송 오류. 직접 이메일로 연락해 주세요.');
+    btn.disabled = false; btn.textContent = '문의 보내기';
+  });
+}
+</script>
+</body>
+</html>
